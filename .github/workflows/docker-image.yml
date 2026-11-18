@@ -31,15 +31,15 @@ jobs:
           push: true
           tags: ghcr.io/${{ github.repository }}:latest
 
-  cleanup:
-    needs: docker-image-build
-    runs-on: ubuntu-latest
+  # cleanup:
+  #   needs: docker-image-build
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - name: Delete untagged versions
-        uses: actions/delete-package-versions@v5
-        with:
-          package-name: ${{ github.event.repository.name }}
-          package-type: container
-          min-versions-to-keep: 0
-          delete-only-untagged-versions: true
+  #   steps:
+  #     - name: Delete untagged versions
+  #       uses: actions/delete-package-versions@v5
+  #       with:
+  #         package-name: ${{ github.event.repository.name }}
+  #         package-type: container
+  #         min-versions-to-keep: 0
+  #         delete-only-untagged-versions: true
